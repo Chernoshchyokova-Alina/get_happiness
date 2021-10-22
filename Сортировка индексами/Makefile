@@ -1,13 +1,13 @@
 
 
-build: main.o bubble_sort.o check_sort.o fill_mas.o output.o function_degree.o measure_time.o compare.o headers.h
-	gcc main.o bubble_sort.o check_sort.o fill_mas.o output.o function_degree.o measure_time.o compare.o headers.h
+build: main.o index_sort.o check_sort.o fill_mas.o output.o function_degree.o measure_time.o compare.o headers.h
+	gcc main.o index_sort.o check_sort.o fill_mas.o output.o function_degree.o measure_time.o compare.o headers.h
 
 	make clean
 main.o: main.c
 	gcc -c main.c
-bubble_sort.o: bubble_sort.c
-	gcc -c bubble_sort.c
+index_sort.o: index_sort.c
+	gcc -c index_sort.c
 check_sort.o: check_sort.c
 	gcc -c check_sort.c
 fill_mas.o: fill_mas.c

@@ -5,21 +5,21 @@
 
 // Функция замера времени
 
-void measure_time(double * mas1, double * mas2, int N, double * timing) 
+void measure_time(double * mas1, double * mas2, int N, double * timing, int *index) 
 {
     clock_t start, stop; // Переменные начала/конца сортировок
-    double duration_bubble_sort, duration_qsort; // Длительность сортировок
+    double duration_index_sort, duration_qsort; // Длительность сортировок
 
- // Измеряем время работы bubble_sort
+ // Измеряем время работы index_sort
     start = clock();
-    bubble_sort(mas1, N * Pack);
+    check_sort(mas1, index, N * Pack);
     stop = clock();
-    duration_bubble_sort = (double)(stop - start) / CLOCKS_PER_SEC;
+    duration_index_sort = (double)(stop - start) / CLOCKS_PER_SEC;
 
- // Если сортировка bubble_sort прошла успешно, записываем время ее работы
-    if (check_sort(mas1, N * Pack) == 1)
+ // Если сортировка index_sort прошла успешно, записываем время ее работы
+    if (check_sort(mas1, index, N * Pack) == 1)
      {
-        timing[0] = duration_bubble_sort;
+        timing[0] = duration_index_sort;
     }
     else 
     {
@@ -33,7 +33,7 @@ void measure_time(double * mas1, double * mas2, int N, double * timing)
     duration_qsort = (double)(stop - start) / CLOCKS_PER_SEC;
     
  // Если сортировка qsort прошла успешно, записываем время ее работы
-    if (check_sort(mas2, N * Pack) == 1) 
+    if (check_sort(mas2, index, N * Pack) == 1) 
     {
         timing[1] = duration_qsort;
     } 
