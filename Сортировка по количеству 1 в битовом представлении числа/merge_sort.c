@@ -77,7 +77,7 @@ void merge_sort(int *mas, int len)
 
     }
 
-    fprintf(merge_sort_process, "%s", "\n Sorted with merge_sort mas is: \n");
+    fprintf(merge_sort_process, "%s", "\nSorted with merge_sort mas is: \n");
     for (i = 0; i < len; i++)
         fprintf(merge_sort_process, "%d ", mas[i]);
 }
