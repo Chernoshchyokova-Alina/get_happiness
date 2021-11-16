@@ -35,10 +35,14 @@ void output(double * timing, int N, int *mas1, int *mas2, int *bits)
         fprintf(output, "%d, ", mas1[i]);
 
      // Выводим битовое представление числа
-        print_bits(mas1[i], bits, N*Pack); 
+        print_bits(mas1[i], bits); 
         for (int j = 0; j < 32; j++) 
         {
             fprintf(output, "%d", bits[j]);
+            if (j==7 || j==15 || j==23)
+                {
+                    fprintf(output, " ");
+                }
         }
         fprintf(output, ", ");
 
@@ -67,12 +71,16 @@ void output(double * timing, int N, int *mas1, int *mas2, int *bits)
     {
      // Выводим число
         fprintf(output, "%d, ", mas2[i]);
-        print_bits(mas2[i], bits, N*Pack);
+        print_bits(mas2[i], bits);
 
      // Выводим битовое представление числа
         for (int j = 0; j < 32; j++) 
         {
             fprintf(output, "%d", bits[j]);
+            if (j==7 || j==15 || j==23)
+                {
+                    fprintf(output, " ");
+                }
         }
         fprintf(output, ", ");
 

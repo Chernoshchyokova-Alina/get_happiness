@@ -5,7 +5,7 @@
 
 // Функция вывода битового представления числа
 
-void print_bits(int number, int *bits, int len)
+void print_bits(int number, int *bits)
 {
     for (int j = 0; j < 32; j++) 
         {

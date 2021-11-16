@@ -8,8 +8,8 @@
 void fill_mas(int * mas1, int * mas2, int size) 
 {
     int number; // Записываемое в массив целое число
-    int high = 1600; // Верхняя граница массива
-    int low = -1600; // Нижняя граница массива
+    int high = -1600; // Верхняя граница массива
+    int low = 1600; // Нижняя граница массива
     FILE * data;
     data = fopen("data.txt", "w");
     for (int i = 0; i < size; i++) 

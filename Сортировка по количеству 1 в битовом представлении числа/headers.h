@@ -17,4 +17,4 @@ void merge_sort(int *mas, int len); // Функция сортировки merge
 void fill_mas(int * mas1, int * mas2, int size); // Функция заполнения массива случайными числами
 void output(double * timing, int N, int *mas1, int *mas2, int *bits); // Функция вывода результата
 void measure_time(int * mas1, int * mas2, int N, double * timing); // Функция замера времени
-void print_bits(int number, int *bits, int len); // Функция вывода битового представления числа
+void print_bits(int number, int *bits); // Функция вывода битового представления числа
