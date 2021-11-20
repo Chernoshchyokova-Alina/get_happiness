@@ -14,7 +14,8 @@ void find_numbers(int N, int *bits)
     int i, k, l, m = 0;
     
     fprintf(fin, "\nResult for %d elements:\n", N);
-    fprintf(fin, "%s", "\nFound number, the bit representation of this number: \n");
+    fprintf(fin, "%s", "\nFound number\t\t");
+    fprintf(fin, "%s", "The bit representation of this number: \n");
 
     // Выводим найденное число
     for(j = 0; m < N; j++)
@@ -27,8 +28,17 @@ void find_numbers(int N, int *bits)
                 if((i>>k)&1)
                 a += (1<<l);
             }
-            fprintf(fin, "%d, ", a); 
+            if (a==0)
+            fprintf(fin, "\t %d\t\t\t", a); 
+            else
+            fprintf(fin, "\t%d\t\t\t", a); 
+
             print_bits(a, bits);
+
+            if (a<1000)
+            fprintf(fin, "     ");
+            else
+            fprintf(fin, " ");
 
             // Выводим битовое представление найденного числа
             for (int j = 0; j < 32; j++) 
