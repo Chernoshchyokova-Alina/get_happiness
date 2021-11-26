@@ -5,43 +5,43 @@
 
 // Формируем и выводим подмножества
 
-void output (int *mas, int N, int k)
+void output (int *mas, int N, int k, int *bits)
 {
    FILE * output;
    output = fopen("output.txt", "w");
-   int p;
+   
+   fprintf(output, "You have: {1, ..., %d}\n", N);
+   fprintf(output, "\n");
+   
+   fprintf(output, "%d-элементные подмножества:\n", k);
 
-    // Выводим k-элементные подмножества множества {1, 2, 3, ... , N}:
-    fprintf(output, "%d-элементные подмножества:\n", k);
+   int n = function_degree(2, N)-1;
+   
+   // Выводим k-элементные подмножества множества {1, ... , N}:
+   for (int i = 0; i < n; i++)
+   {
+       int count = count_bits(mas[i]);
 
-    p = k;
-    while (p>=0)
-    {
-        fprintf(output, "%s", "{");
-        for (int i = 0; i < k; i++)
-        {
-            fprintf(output, "%d", mas[i]);
-            if (i < k-1)
-            fprintf(output, "%s", ", ");
-        }
-        fprintf(output, "%s", "}\n");
+       if (count == k)
+       {
+           fprintf(output, "%s", "{");
 
-        if (mas[k - 1] == N)
-        {
-            p = p - 1;
-        }
-        
-        else
-        {
-            p = k - 1;
-        }
+           in_bits(mas[i], bits); 
 
-        if (p>=0)
-        {
-            for (int i = k - 1; i >= p; i--)
-            {
-                mas[i] = mas[p] + i - p + 1;
+           for (int j = 0; j < 32; j++) 
+           {
+               if (bits[j]==1)
+               {
+                   count--;
+                   fprintf(output, "%d", j+1);
+                   
+                   if (count!=0)
+                   fprintf(output, "%s", ", ");
+               }
             }
+            
+            fprintf(output, "%s", "}\n");
+
         }
     }
 }

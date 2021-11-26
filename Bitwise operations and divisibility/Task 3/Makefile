@@ -1,7 +1,6 @@
 build: main.o find_numbers.o print_bits.o headers.h
 	gcc main.o find_numbers.o print_bits.o headers.h
 
-	make clean
 main.o: main.c
 	gcc -c main.c
 find_numbers.o: find_numbers.c

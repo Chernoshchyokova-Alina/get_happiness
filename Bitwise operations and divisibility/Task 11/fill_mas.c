@@ -3,11 +3,13 @@
 
 #include "headers.h"
 
-// Формируем множество {1, 2, 3, ... , N}
+// Формируем множество {1, 2, 3, ... , 2^N - 1}
 
 void fill_mas(int N, int *mas)
 {
-    for (int i = 0; i < N; i++)
+    int n = function_degree(2, N)-1;
+
+    for (int i = 0; i < n; i++)
     {
         mas[i] = i + 1;
     }

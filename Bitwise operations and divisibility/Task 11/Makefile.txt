@@ -1,0 +1,16 @@
+build: main.o fill_mas.o count_bits.o output.o headers.h
+	gcc main.o fill_mas.o count_bits.o output.o headers.h
+
+	make clean
+main.o: main.c
+	gcc -c main.c
+fill_mas.o: fill_mas.c
+	gcc -c fill_mas.c
+count_bits.o: count_bits.c
+	gcc -c count_bits.c
+output.o: output.c
+	gcc -c output.c
+	
+clean:
+	del *.o
+	del *.gch

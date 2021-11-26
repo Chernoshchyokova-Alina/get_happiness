@@ -9,21 +9,22 @@
 int main(void)
 {
     int k, N;
-    int mas [128000]; // Массив для чисел последовательности {1, 2, 3, ... , N}
+    int mas [128000]; // Массив для чисел последовательности {1, 2, 3, ... , 2^N - 1}
+    int bits[32]; // Массив из 32 элементов для записи битового представления числа
 
     // Считываем данные
-    printf ("You have: {1, 2, 3, ... , N}\n");
+    printf ("You have: {1, ..., N}\n");
     printf ("Enter N:\n");
     scanf ("%d", &N);
 
     printf ("How many numbers do you want to be included in one subset?\n");
     scanf ("%d",&k);
 
-    // Формируем множество {1, 2, 3, ... , N}
+    // Формируем множество {1, 2, 3, ... , 2^N - 1}
     fill_mas(N, mas);
 
     // Формируем и выводим подмножества
-    output(mas, N, k);
+    output(mas, N, k, bits);
 
     return 0;
 }
