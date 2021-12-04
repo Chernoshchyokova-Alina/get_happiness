@@ -1,0 +1,9 @@
+plot "6.txt" title "The polygon" lt 7 lw 3 lc 14 w lp, "sp6.txt" title "The signal line" lw 3 dt 3 lc 2 w l
+set xrange [-12:11]
+set yrange [-10:13]
+replot
+set terminal png size 1000, 700
+set output "6.png"
+replot
+set term wxt
+replot

@@ -48,31 +48,14 @@ void Define_the_type (double *x, double *y, int count_vertices)
             if (count_f1==0 || count_f1==(count_vertices-2))
             {
                 f2=1; // Сигнал невыпуклости
-
-                printf("The polygon is not convex \n");
-
-                FILE*file; 
-                char filename[120]; 
-                printf("Enter file name to write the special points: "); // Вводим имя файла для записи данных
-                scanf("%s", filename); 
-                file = fopen(filename, "w"); 
-
-                if (!file) // Если файл не открылся, пишем, что файл нельзя открыть, и возвращаем 1
-                { 
-                    printf("Unable to open %s\n", filename); 
-                    break;
-                }
-
-                fprintf(file, "%lf %lf", x[i], y[i]);
-                fprintf(file, "\n");
-                fprintf(file, "%lf %lf", x[i+2], y[i+2]);
-
-                break;
-                fclose(file); // Закрываем файл
             }
         }
         
         // Проверяем сигнал невыпуклости
+        if (f2==1)
+        {
+            printf("The polygon is not convex");
+        }  
         if (f2==0)
         {
             printf("The polygon is convex");
